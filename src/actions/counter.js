@@ -6,3 +6,4 @@ export function incrementIfOdd() {
   if (counter % 2 === 0) return
   store.dispatch({ type: ActionTypes.INCREMENT_COUNTER })
 }
+

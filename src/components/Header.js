@@ -12,11 +12,11 @@ const rotate360 = keyframes`
   }
 `
 
-const TopBar = styled.div`
+const TopLine = styled.div`
   background-color: #222;
-  height: 150px;
   padding: 20px;
   color: #fff;
+  text-align: center;
 
   .redux-logo {
     animation: ${rotate360} infinite 20s linear;
@@ -26,10 +26,12 @@ const TopBar = styled.div`
 
 function Header() {
   return (
-    <TopBar>
-      <img src={logo} className="redux-logo" alt="logo" />
-      <h2>Welcome to Create Redux App</h2>
-    </TopBar>
+    <TopLine>
+      <div className="container">
+        <img src={logo} className="redux-logo" alt="logo" />
+        <h2>Welcome to Create Redux App</h2>
+      </div>
+    </TopLine>
   )
 }
 
