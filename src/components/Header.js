@@ -29,7 +29,7 @@ function Header() {
     <TopLine>
       <div className="container">
         <img src={logo} className="redux-logo" alt="logo" />
-        <h2>Welcome to Create Redux App</h2>
+        <h2>Welcome to Novikov Alex Portfolio</h2>
       </div>
     </TopLine>
   )
