@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { fetchAlbums } from "../actions/albumActions";
-
-
-
-import PropTypes from 'prop-types'
-import ActionTypes from '../constants/actionTypes'
+import Slider from "react-slick";
 
 class AlbumListContainer extends Component {
   componentDidMount() {
@@ -18,6 +14,16 @@ class AlbumListContainer extends Component {
 
   render() {
     const { error, loading, albums } = this.props;
+    const sliderSettings = {
+      dots: true,
+      arrows: true,
+      infinite: true,
+      fade: true,
+      speed: 2500,
+      autoPlay: true,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
 
     if (error) {
       return <div>Error! {error.message}</div>;
@@ -29,18 +35,13 @@ class AlbumListContainer extends Component {
 
     return (
       <React.Fragment>
-        <div className="container">
-          <h1>Albums</h1>
-          <ul>
-            {albums && albums.length ? albums.map(album =>
-              <li key={album.sys.id}>
-                <p>{album.fields.title}</p>
-
-                {/* album.fields.images.length ? <img src={album.fields.images[0].fields.photoю.fields.file.url} alt={album.fields.title}/> : null */}
-              </li>
-            ): null}
-          </ul>
-        </div>
+        <Slider {...sliderSettings}>
+          {albums && albums.length ? albums.map(album => {
+            if (album.fields.photo) {
+              return <img key={album.sys.id} src={album.fields.photo.fields.file.url} alt={album.fields.title} />
+            }
+          }) : null}
+        </Slider>
       </React.Fragment>
     );
   }
