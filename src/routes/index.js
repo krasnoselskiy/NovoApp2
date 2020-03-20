@@ -20,7 +20,7 @@ function Routes() {
         className="switch-wrapper"
       >
         <div id="outer-container">
-          <SidebarMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
+          <SidebarMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} history={history} />
           <div id="page-wrap">
             <Header />
 
