@@ -26,8 +26,8 @@ export const fetchAlbumsFailure = error => ({
 export const fetchAlbums = () => dispatch => {
   dispatch(fetchAlbumsStart())
 
-  client.getEntries(() => {
-    // console.log('getEntries');
+  client.getEntries({
+
   }).then((res) => {
     dispatch(fetchAlbumsSuccess(res.items))
   }).catch((err) => {
