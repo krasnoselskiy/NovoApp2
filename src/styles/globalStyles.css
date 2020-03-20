@@ -48,8 +48,8 @@ code {
 .slick-next, .slick-prev {
   cursor: pointer;
   z-index: 2;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   opacity: 0.5;
   transition: all .35s;
 }
@@ -69,22 +69,22 @@ code {
 }
 
 .slick-next {
-  right: 20px;
+  right: 28px;
 }
 
 .slick-prev {
-  left: 20px;
+  left: 28px;
 }
 
 .slick-next:before {
-  border-top: 2px solid #000;
-  border-left: 2px solid #000;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
   transform: translate(-50%, -50%) rotate(135deg);
 }
 
 .slick-prev:before {
-  border-top: 2px solid #000;
-  border-left: 2px solid #000;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
@@ -103,10 +103,12 @@ code {
 .bm-item {
   display: inline-block;
   outline: none;
+  font-size: 24px;
+  font-weight: 500;
 
   /* Our sidebar item styling */
   text-decoration: none;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #d1d1d1;
   transition: color 0.2s;
 }
@@ -128,8 +130,9 @@ code {
 }
 
 .bm-burger-bars {
-  background: #000;
-  height: 3px !important;
+  background: #fff;
+  height: 2px !important;
+  transition: all .35s;
 }
 
 .bm-cross-button {
@@ -138,6 +141,7 @@ code {
 }
 
 .bm-cross {
+  width: 2px!important;
   background: #bdc3c7;
 }
 
@@ -153,6 +157,10 @@ code {
 
 .bm-item-list {
   color: #b8b7ad;
+  text-align: center;
+  height: 100%;
+  padding-top: 100px;
+  box-sizing: border-box;
 }
 
 .bm-overlay {
