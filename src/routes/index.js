@@ -22,7 +22,6 @@ function Routes() {
         <div id="outer-container">
           <SidebarMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} history={history} />
           <div id="page-wrap">
-            <Header />
 
             <Switch>
               <Route path="/about">

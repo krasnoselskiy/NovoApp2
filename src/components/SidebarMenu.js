@@ -40,7 +40,8 @@ export default class SidebarMenu extends React.Component {
           isOpen={this.state.menuOpen}
           onStateChange={(state) => this.handleStateChange(state)}
         >
-          <Link to='/about'>About</Link>
+          <Link to='/'>My works</Link>
+          <Link to='/about'>Who I am</Link>
         </Menu>
       </div>
     )
