@@ -1,26 +1,31 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
+import { Link } from "react-router-dom";
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
-
-const rotate360 = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`
 
 const TopLine = styled.div`
-  background-color: #222;
-  padding: 20px;
-  color: #fff;
+  padding: 35px;
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.3;
+  z-index: 1;
+  transition: all 800ms ease-in;
 
-  .redux-logo {
-    animation: ${rotate360} infinite 20s linear;
-    height: 80px;
+  :hover {
+    opacity: 1;
+    background: #ccc;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 500;
   }
 `
 
@@ -28,8 +33,9 @@ function Header() {
   return (
     <TopLine>
       <div className="container">
-        <img src={logo} className="redux-logo" alt="logo" />
-        <h2>Welcome to Novikov Alex Portfolio</h2>
+        <Link to='/'>
+          <h1>Alex Novikov</h1>
+        </Link>
       </div>
     </TopLine>
   )
