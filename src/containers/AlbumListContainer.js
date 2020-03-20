@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { fetchAlbums } from "../actions/albumActions";
 import Slider from "react-slick";
 
+import SliderItem from "../components/SliderItem";
+
 class AlbumListContainer extends Component {
   componentDidMount() {
     this.props.dispatch(fetchAlbums());
@@ -20,7 +22,8 @@ class AlbumListContainer extends Component {
       infinite: true,
       fade: true,
       speed: 2500,
-      autoPlay: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
       slidesToShow: 1,
       slidesToScroll: 1
     };
@@ -37,8 +40,11 @@ class AlbumListContainer extends Component {
       <React.Fragment>
         <Slider {...sliderSettings}>
           {albums && albums.length ? albums.map(album => {
-            if (album.fields.photo) {
-              return <img key={album.sys.id} src={album.fields.photo.fields.file.url} alt={album.fields.title} />
+            if (album.sys.contentType.sys.id == "photoGallery") {
+              return <SliderItem key={album.sys.id}
+                                title={album.fields.title}
+                                src={album.fields.images[0].fields.photo.fields.file.url}
+                                slug={album.fields.slug} />
             }
           }) : null}
         </Slider>

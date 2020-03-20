@@ -6,6 +6,7 @@ import { createBrowserHistory } from 'history'
 import Header from '../components/Header'
 import SidebarMenu from '../components/SidebarMenu'
 import AboutComponent from '../components/AboutComponent'
+import AlbumComponent from '../components/AlbumComponent'
 import AlbumListContainer from '../containers/AlbumListContainer'
 
 export const history = createBrowserHistory()
@@ -13,27 +14,23 @@ export const history = createBrowserHistory()
 function Routes() {
   return (
     <Router history={history}>
-      <AnimatedSwitch
-        atEnter={{ opacity: 0 }}
-        atLeave={{ opacity: 0 }}
-        atActive={{ opacity: 1 }}
-        className="switch-wrapper"
-      >
-        <div id="outer-container">
-          <SidebarMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} history={history} />
-          <div id="page-wrap">
+      <div id="outer-container">
+        <SidebarMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} history={history} />
+        <div id="page-wrap">
 
-            <Switch>
-              <Route path="/about">
-                <AboutComponent />
-              </Route>
-              <Route path="/">
-                <AlbumListContainer />
-              </Route>
-            </Switch>
-          </div>
+          <Switch>
+            <Route path="/albums/:id">
+              <AlbumComponent />
+            </Route>
+            <Route path="/about">
+              <AboutComponent />
+            </Route>
+            <Route path="/">
+              <AlbumListContainer />
+            </Route>
+          </Switch>
         </div>
-      </AnimatedSwitch>
+      </div>
     </Router>
   )
 }
