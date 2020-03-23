@@ -6,7 +6,7 @@ const SliderItem = ({ title, src, albumId }) => {
   return (
     <SliderItemWrap>
       <img src={src} alt={title} />
-      <Link className="link" to={'albums/' + albumId }>Go to...</Link>
+      <Link key={albumId} className="link" to={ 'albums/' + albumId }>Go to...</Link>
     </SliderItemWrap>
   );
 }

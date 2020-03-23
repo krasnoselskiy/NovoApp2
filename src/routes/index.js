@@ -5,8 +5,8 @@ import { createBrowserHistory } from 'history'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import SidebarMenu from '../components/SidebarMenu'
-import AlbumComponent from '../components/AlbumComponent'
 import AlbumListContainer from '../containers/AlbumListContainer'
+import AlbumContainer from '../containers/AlbumContainer'
 import AuthorContainer from '../containers/AuthorContainer'
 
 export const history = createBrowserHistory()
@@ -24,7 +24,7 @@ function Routes({ location }) {
             <div id="page-wrap">
               <Switch>
                 <Route path="/albums/:id">
-                  <AlbumComponent />
+                  <AlbumContainer />
                 </Route>
                 <Route path="/about">
                   <AuthorContainer />

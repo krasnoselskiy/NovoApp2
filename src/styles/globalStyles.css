@@ -15,8 +15,6 @@ body {
   line-height: 1.3;
 }
 
-
-
 .flex {
   display: flex!important;
 }
@@ -54,6 +52,10 @@ body {
   height: 60px;
   opacity: 0.5;
   transition: all .35s;
+}
+
+.slick-active {
+  z-index: 99;
 }
 
 .slick-next:hover, .slick-prev:hover {

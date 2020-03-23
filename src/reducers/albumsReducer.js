@@ -1,15 +1,15 @@
 import ActionTypes from '../constants/actionTypes'
 
 const initialState = {
-  images: [],
+  items: [],
   loading: false,
   isLoaded: false,
   error: null
 };
 
-export default function albumReducer(state = initialState, action) {
+export default function albumsReducer(state = initialState, action) {
   switch (action.type) {
-    case ActionTypes.FETCH_ALBUM_START:
+    case ActionTypes.FETCH_ALBUMS_START:
       return {
         ...state,
         loading: true,
@@ -17,15 +17,15 @@ export default function albumReducer(state = initialState, action) {
         error: null
       };
 
-    case ActionTypes.FETCH_ALBUM_SUCCESS:
+    case ActionTypes.FETCH_ALBUMS_SUCCESS:
       return {
         ...state,
         loading: false,
         isLoaded: true,
-        images: action.payload.images
+        items: action.payload.items
       };
 
-    case ActionTypes.FETCH_ALBUM_FAILURE:
+    case ActionTypes.FETCH_ALBUMS_FAILURE:
       return {
         ...state,
         loading: false,
