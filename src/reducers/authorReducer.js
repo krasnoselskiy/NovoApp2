@@ -17,6 +17,7 @@ export default function authorReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
+        isLoaded: false,
         error: null
       };
 
@@ -32,6 +33,7 @@ export default function authorReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        isLoaded: false,
         error: action.payload.error,
         albums: []
       };
