@@ -40,7 +40,7 @@ class AlbumListContainer extends Component {
     }
 
     return (
-      <React.Fragment>
+      <Page>
         <Slider {...sliderSettings}>
           {albums && albums.length ? albums.map(album => {
             return album.sys.contentType.sys.id === "photoGallery" ?
@@ -51,7 +51,7 @@ class AlbumListContainer extends Component {
                       slug={album.fields.slug} /> : null;
           }) : null}
         </Slider>
-      </React.Fragment>
+      </Page>
     );
   }
 }
@@ -70,6 +70,13 @@ const SpinnerWrap = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`
+
+const Page = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 `
 
 export default connect(mapStateToProps)(AlbumListContainer);

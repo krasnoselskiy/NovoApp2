@@ -64,6 +64,10 @@ const SpinnerWrap = styled.div`
 `
 
 const About = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 100vh;
   display: flex;
   flex-direction: row;

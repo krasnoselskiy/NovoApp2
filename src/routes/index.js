@@ -11,37 +11,37 @@ import AuthorContainer from '../containers/AuthorContainer'
 
 export const history = createBrowserHistory()
 
-function Routes({ location }) {
+function Routes() {
   return (
-    <TransitionGroup>
-      <CSSTransition
-        timeout={{ enter: 300, exit: 300 }}
-      >
         <Router history={history}>
           <div id="outer-container">
             <SidebarMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} history={history} />
 
             <div id="page-wrap">
-              <Switch>
-                <Route path="/albums/:id">
-                  <AlbumContainer />
-                </Route>
-                <Route path="/about">
-                  <AuthorContainer />
-                </Route>
-                <Route path="/">
-                  <AlbumListContainer />
-                </Route>
-              </Switch>
+              <Route render={({ location }) => (
+                <TransitionGroup>
+                  <CSSTransition
+                    key={location.key}
+                    timeout={300}
+                    classNames="fade"
+                  >
+                    <Switch location={location}>
+                      <Route path="/albums/:id">
+                        <AlbumContainer />
+                      </Route>
+                      <Route path="/about">
+                        <AuthorContainer />
+                      </Route>
+                      <Route path="/">
+                        <AlbumListContainer />
+                      </Route>
+                    </Switch>
+                  </CSSTransition>
+                </TransitionGroup>
+              )} />
             </div>
           </div>
         </Router>
-      </CSSTransition>
-    </TransitionGroup>
-
-
-
-  )
-}
+)}
 
 export default Routes
