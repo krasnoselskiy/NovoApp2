@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { fetchAlbum } from "../actions/albumItemActions";
-import styled from '@emotion/styled'
 
 import '../styles/albumGrid.css'
 
@@ -27,7 +26,7 @@ class AlbumContainer extends Component {
             let url = image.fields.imageList.fields.file.url;
 
             return url ?
-              <figure className={`gallery__item gallery__item--${++i}`}>
+              <figure key={image.sys.id} className={`gallery__item gallery__item--${++i}`}>
                 <img className="gallery__img" key={i} src={url} alt="" />
               </figure> : null;
           })
@@ -46,20 +45,5 @@ const mapStateToProps = state => {
     error: state.album.error
   }
 };
-
-const Images = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-  color: #fff;
-
-  img {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-`
 
 export default connect(mapStateToProps)(AlbumContainer);
