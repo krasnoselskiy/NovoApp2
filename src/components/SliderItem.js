@@ -45,6 +45,4 @@ const SliderItemWrap = styled.div`
   }
 `
 
-const Bounce = styled.div`animation: 2s ___CSS_0___ infinite`;
-
 export default SliderItem;

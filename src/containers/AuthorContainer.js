@@ -11,10 +11,6 @@ class AuthorContainer extends Component {
     this.props.dispatch(fetchAuthor());
   }
 
-  componentDidUpdate() {
-    const { error, loading, albums } = this.props;
-  }
-
   render() {
     const { error, loading, isLoaded, name, photo, description } = this.props;
 

@@ -14,10 +14,6 @@ class AlbumListContainer extends Component {
     this.props.dispatch(fetchAlbums());
   }
 
-  componentDidUpdate() {
-    const { error, loading, albums } = this.props;
-  }
-
   render() {
     const { error, loading, albums } = this.props;
     const sliderSettings = {
@@ -46,13 +42,12 @@ class AlbumListContainer extends Component {
       <React.Fragment>
         <Slider {...sliderSettings}>
           {albums && albums.length ? albums.map(album => {
-            if (album.sys.contentType.sys.id == "photoGallery") {
-              return <SliderItem key={album.sys.id}
-                                albumId={album.sys.id}
-                                title={album.fields.title}
-                                src={album.fields.images[0].fields.imageList.fields.file.url}
-                                slug={album.fields.slug} />
-            }
+            return album.sys.contentType.sys.id === "photoGallery" ?
+                    <SliderItem key={album.sys.id}
+                      albumId={album.sys.id}
+                      title={album.fields.title}
+                      src={album.fields.images[0].fields.imageList.fields.file.url}
+                      slug={album.fields.slug} /> : null;
           }) : null}
         </Slider>
       </React.Fragment>
@@ -70,10 +65,10 @@ const mapStateToProps = state => {
 };
 
 const SpinnerWrap = styled.div`
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%)
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 
 export default connect(mapStateToProps)(AlbumListContainer);
