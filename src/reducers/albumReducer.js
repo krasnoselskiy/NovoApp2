@@ -1,7 +1,7 @@
 import ActionTypes from '../constants/actionTypes'
 
 const initialState = {
-  albums: [],
+  items: [],
   loading: false,
   error: null
 };
