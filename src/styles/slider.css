@@ -69,3 +69,50 @@
 .slider-item img {
   width: 100%;
 }
+
+.slick-slide .link {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
+  font-size: 20px;
+  z-index: 2;
+  border: 2px solid #000;
+  color: #000;
+  padding: 12px;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.35s;
+  opacity: 0;
+}
+
+.slick-slide .link:hover {
+  border-color: transparent;
+  background: #000;
+  color: #fff;
+}
+
+.slick-active .link {
+  animation: show 1s alternate;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
