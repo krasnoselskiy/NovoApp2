@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import styled from '@emotion/styled';
 
-const SliderItem = ({ title, src, slug }) => {
+const SliderItem = ({ title, src, albumId }) => {
   return (
     <SliderItemWrap>
       <img src={src} alt={title} />
-      <Link className="link" to={'albums/' + slug }>Go to...</Link>
+      <Link className="link" to={'albums/' + albumId }>Go to...</Link>
     </SliderItemWrap>
   );
 }
