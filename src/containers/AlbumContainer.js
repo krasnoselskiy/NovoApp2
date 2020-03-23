@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchAlbum } from "../actions/albumItemActions";
 import styled from '@emotion/styled'
 
+import '../styles/albumGrid.css'
 
 class AlbumContainer extends Component {
   componentDidMount() {
@@ -20,19 +21,19 @@ class AlbumContainer extends Component {
     }
 
     return (
-      <Images>
-        <div className="container flex">
-          {isLoaded && images.length ?
-            <div className="images">
-              {images.map((image, i) => {
-                let url = image.fields.imageList.fields.file.url;
+      <div className='gallery'>
+        {isLoaded && images.length ?
+          images.map((image, i) => {
+            let url = image.fields.imageList.fields.file.url;
 
-                return url ? <img key={i} src={url} alt=""/> : null;
-              })}
-            </div> : null
-          }
-        </div>
-      </Images>
+            return url ?
+              <figure className={`gallery__item gallery__item--${++i}`}>
+                <img className="gallery__img" key={i} src={url} alt="" />
+              </figure> : null;
+          })
+        : null
+      }
+      </div>
     );
   }
 }
