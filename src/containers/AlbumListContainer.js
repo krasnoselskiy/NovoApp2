@@ -48,6 +48,7 @@ class AlbumListContainer extends Component {
           {albums && albums.length ? albums.map(album => {
             if (album.sys.contentType.sys.id == "photoGallery") {
               return <SliderItem key={album.sys.id}
+                                albumId={album.sys.id}
                                 title={album.fields.title}
                                 src={album.fields.images[0].fields.imageList.fields.file.url}
                                 slug={album.fields.slug} />
@@ -59,11 +60,14 @@ class AlbumListContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  albums: state.albums.items,
-  loading: state.albums.loading,
-  error: state.albums.error
-});
+const mapStateToProps = state => {
+  return {
+    albums: state.albums.isLoaded ? state.albums.items : null,
+    loading: state.albums.loading,
+    isLoaded: state.albums.isLoaded,
+    error: state.albums.error
+  }
+};
 
 const SpinnerWrap = styled.div`
  position: absolute;
