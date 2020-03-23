@@ -5,9 +5,10 @@ import Slider from "react-slick";
 import Loader from 'react-loader-spinner'
 import styled from '@emotion/styled'
 
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-
 import SliderItem from "../components/SliderItem";
+
+import '../styles/slider.css'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 class AlbumListContainer extends Component {
   componentDidMount() {
