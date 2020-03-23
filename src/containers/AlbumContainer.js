@@ -23,10 +23,10 @@ class AlbumContainer extends Component {
       <div className='gallery'>
         {isLoaded && images.length ?
           images.map((image, i) => {
-            let url = image.fields.imageList.fields.file.url;
+            let url = image.fields.coverImage.fields.file.url;
 
             return url ?
-              <figure key={image.sys.id} className={`gallery__item gallery__item--${++i}`}>
+              <figure key={image.sys.id + i} className={`gallery__item gallery__item--${++i}`}>
                 <img className="gallery__img" key={i} src={url} alt="" />
               </figure> : null;
           })
