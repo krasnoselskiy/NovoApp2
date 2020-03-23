@@ -1,37 +1,46 @@
 import React from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
-import { AnimatedSwitch } from 'react-router-transition';
 import { createBrowserHistory } from 'history'
 
-import Header from '../components/Header'
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
 import SidebarMenu from '../components/SidebarMenu'
-import AboutComponent from '../components/AboutComponent'
 import AlbumComponent from '../components/AlbumComponent'
 import AlbumListContainer from '../containers/AlbumListContainer'
+import AuthorContainer from '../containers/AuthorContainer'
 
 export const history = createBrowserHistory()
 
-function Routes() {
+function Routes({ location }) {
   return (
-    <Router history={history}>
-      <div id="outer-container">
-        <SidebarMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} history={history} />
-        <div id="page-wrap">
+    <TransitionGroup>
+      <CSSTransition
+        timeout={{ enter: 300, exit: 300 }}
+      >
+        <Router history={history}>
+          <div id="outer-container">
+            <SidebarMenu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} history={history} />
 
-          <Switch>
-            <Route path="/albums/:id">
-              <AlbumComponent />
-            </Route>
-            <Route path="/about">
-              <AboutComponent />
-            </Route>
-            <Route path="/">
-              <AlbumListContainer />
-            </Route>
-          </Switch>
-        </div>
-      </div>
-    </Router>
+            <div id="page-wrap">
+              <Switch>
+                <Route path="/albums/:id">
+                  <AlbumComponent />
+                </Route>
+                <Route path="/about">
+                  <AuthorContainer />
+                </Route>
+                <Route path="/">
+                  <AlbumListContainer />
+                </Route>
+              </Switch>
+            </div>
+          </div>
+        </Router>
+      </CSSTransition>
+    </TransitionGroup>
+
+
+
   )
 }
 
