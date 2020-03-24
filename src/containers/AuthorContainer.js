@@ -19,9 +19,9 @@ class AuthorContainer extends Component {
     }
 
     if (loading) {
-      return <SpinnerWrap>
-        <Loader type="MutatingDots" color="#000" timeout={3000} height={100} width={100} />
-      </SpinnerWrap>
+      return  <SpinnerWrap>
+                <Loader type="TailSpin" color="#000" height={100} width={100} />
+              </SpinnerWrap>
     }
 
     return (
