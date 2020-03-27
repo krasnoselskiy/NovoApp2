@@ -32,9 +32,13 @@
 }
 
 .bm-burger-bars {
-  background: #fff;
+  background: #000;
   height: 2px !important;
   transition: all .35s;
+}
+
+[data-theme="white"] .bm-burger-bars {
+  background: #fff;
 }
 
 .bm-cross-button {
