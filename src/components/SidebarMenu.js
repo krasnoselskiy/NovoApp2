@@ -11,7 +11,7 @@ export default class SidebarMenu extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.unlisten = this.props.history.listen(() => {
       this.closeMenu();
     });
