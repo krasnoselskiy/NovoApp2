@@ -1,6 +1,8 @@
 import { client } from './client';
 import ActionTypes from '../constants/actionTypes'
 
+import { setThemeColor } from './themeActions';
+
 export const fetchAlbumsStart = () => ({
   type: ActionTypes.FETCH_ALBUMS_START
 });
@@ -19,7 +21,12 @@ export const fetchAlbums = () => dispatch => {
   dispatch(fetchAlbumsStart())
 
   client.getEntries().then((res) => {
-    dispatch(fetchAlbumsSuccess(res.items))
+    const firstAlbum = res.items.find(item => item.sys.contentType.sys.id === 'photoGallery' ? item : null);
+    firstAlbum.fields.isDarkTheme ?
+      dispatch(setThemeColor('black')) :
+      dispatch(setThemeColor('white'));
+
+    dispatch(fetchAlbumsSuccess(res.items));
   }).catch((err) => {
     dispatch(fetchAlbumsFailure(err))
   });

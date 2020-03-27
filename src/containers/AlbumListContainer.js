@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { fetchAlbums } from "../actions/albumActions";
+import { setThemeColor } from "../actions/themeActions";
 import Slider from "react-slick";
 import Loader from 'react-loader-spinner'
 import styled from '@emotion/styled'
@@ -9,6 +10,8 @@ import SliderItem from "../components/SliderItem";
 
 import '../styles/slider.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
+
 
 class AlbumListContainer extends Component {
   componentDidMount() {
@@ -21,15 +24,22 @@ class AlbumListContainer extends Component {
       dots: true,
       arrows: true,
       infinite: true,
-      lazyLoad: true,
+      // lazyLoad: true,
       fade: true,
       speed: 2500,
       autoplay: false,
       autoplaySpeed: 2000,
       slidesToShow: 1,
       slidesToScroll: 1,
-      afterChange: (current, next) => console.log(current),
-      beforeChange: (current, next) => console.log(current)
+      beforeChange: (current, next) => {
+        let themeIsblack = document.getElementsByClassName("slider-item-wrap")[next].dataset.themeIsblack;
+
+        if (themeIsblack && themeIsblack === 'true') {
+            this.props.dispatch(setThemeColor('black'));
+        } else if (themeIsblack && themeIsblack === 'false') {
+          this.props.dispatch(setThemeColor('white'));
+        }
+      }
     };
 
     if (error) {
