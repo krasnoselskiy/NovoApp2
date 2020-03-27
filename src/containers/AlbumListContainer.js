@@ -21,12 +21,15 @@ class AlbumListContainer extends Component {
       dots: true,
       arrows: true,
       infinite: true,
+      lazyLoad: true,
       fade: true,
-      speed: 1500,
+      speed: 2500,
       autoplay: false,
       autoplaySpeed: 2000,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      afterChange: (current, next) => console.log(current),
+      beforeChange: (current, next) => console.log(current)
     };
 
     if (error) {
@@ -45,10 +48,11 @@ class AlbumListContainer extends Component {
           {albums && albums.length ? albums.map(album => {
             return album.sys.contentType.sys.id === "photoGallery" ?
                     <SliderItem key={album.sys.id}
-                      albumId={album.sys.id}
-                      title={album.fields.title}
-                      src={album.fields.images[0].fields.imageList.fields.file.url}
-                      slug={album.fields.slug} /> : null;
+                                albumId={album.sys.id}
+                                isDarkTheme={album.fields.isDarkTheme}
+                                title={album.fields.title}
+                                src={album.fields.images[0].fields.imageList.fields.file.url}
+                                slug={album.fields.slug} /> : null;
           }) : null}
         </Slider>
       </Page>

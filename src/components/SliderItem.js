@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import styled from '@emotion/styled';
 
-const SliderItem = ({ title, src, albumId }) => {
+const SliderItem = ({ title, src, albumId, isDarkTheme }) => {
   return (
     <SliderItemWrap>
       <img src={src} alt={title} />
-      <Link key={albumId} className="link" to={ 'albums/' + albumId }>See all photos</Link>
+      <Link key={albumId} className={`link ${isDarkTheme ? "dark" : "white"}`} to={ 'albums/' + albumId }>See all photos</Link>
     </SliderItemWrap>
   );
 }

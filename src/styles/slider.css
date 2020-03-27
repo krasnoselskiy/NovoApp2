@@ -87,10 +87,21 @@
   opacity: 0;
 }
 
+.slick-slide .link.white {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
 .slick-slide .link:hover {
   border-color: transparent;
   background: #000;
   color: #fff;
+}
+
+.slick-slide .link.white:hover {
+  border-color: transparent;
+  background: #fff;
+  color: #000;
 }
 
 .slick-active .link {
