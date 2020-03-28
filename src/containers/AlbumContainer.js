@@ -27,7 +27,8 @@ class AlbumContainer extends Component {
 
             return url ?
               <figure key={image.sys.id + i} className={`gallery__item gallery__item--${++i}`}>
-                <img className="gallery__img" key={i} src={url} alt="" />
+                <img className="gallery__img" key={i} src={url} alt={image.sys.id} />
+                <div className="zoom-icon"></div>
               </figure> : null;
           })
         : null
