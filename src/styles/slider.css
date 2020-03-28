@@ -3,6 +3,10 @@
   height: 100vh;
 }
 
+.slick-initialized .slick-slide {
+  position: relative;
+}
+
 .slick-list,
 .slick-track,
 .slick-slide,
@@ -100,6 +104,12 @@
   color: #fff;
 }
 
+[data-theme="black"] .slick-slide .link:hover {
+  border-color: transparent;
+  background: #fff;
+  color: #000;
+}
+
 .slick-dots li button::before,
 .slick-dots li.slick-active button:before {
   font-size: 0;
@@ -121,7 +131,7 @@
 }
 
 .slick-slide .slider-item-wrap {
-  height: 100vh;
+  height: 101vh;
   width: 100%;
   position: absolute;
   top: 50%;
@@ -138,14 +148,6 @@
   animation: show 1s alternate;
   animation-delay: 1s;
   animation-fill-mode: forwards;
-}
-
-[data-theme="black"] {
-  background: black;
-}
-
-[data-theme="white"] {
-  background: white;
 }
 
 @keyframes show {
