@@ -33,7 +33,7 @@
 
 .bm-burger-bars {
   background: #000;
-  height: 2px !important;
+  height: 3px !important;
   transition: all .35s;
 }
 
